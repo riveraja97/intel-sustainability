@@ -85,45 +85,54 @@ body {
 
 /* Milestone Cards */
 .milestone {
+  position: relative;
   flex: 0 0 300px;
-  background: white;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   scroll-snap-align: start;
-  opacity: 1;
-  transform: translateY(0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .milestone img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-.milestone-content {
+
+/* Overlay for Hover Details */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 64, 128, 0.85);
+  color: white;
   padding: 1rem;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+  text-align: center;
+  overflow: auto;
 }
-.milestone h3 {
-  color: #0071c5;
+.overlay h3 {
   margin: 0 0 0.5rem;
+  font-size: 1.2rem;
 }
-.short-text {
-  font-weight: 600;
-}
-.details {
-  display: none;
+.overlay p {
   font-size: 0.9rem;
-  margin-top: 0.5rem;
-  color: #444;
+  line-height: 1.3;
 }
 
-/* Hover Reveal */
+/* Hover Effect */
 .milestone:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
-.milestone:hover .details {
-  display: block;
+.milestone:hover .overlay {
+  opacity: 1;
 }
 
 /* Scroll Animations */
@@ -145,6 +154,10 @@ body {
   }
   .milestone {
     width: 100%;
+  }
+  .overlay {
+    font-size: 0.85rem;
+    padding: 0.8rem;
   }
 }
 

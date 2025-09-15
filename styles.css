@@ -1,0 +1,133 @@
+/* Pure CSS Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, #0071c5 33%, #004080 33% 66%, #00a0e3 66% 100%);
+  z-index: 1000;
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f9fc;
+  color: #1a1a1a;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #0071c5, #004080);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.hero .logo {
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Timeline Section */
+.timeline {
+  padding: 3rem 2rem;
+}
+.timeline-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #004080;
+}
+.timeline-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+.timeline-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Milestone Cards */
+.milestone {
+  flex: 0 0 300px;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  scroll-snap-align: start;
+  opacity: 1;
+  transform: translateY(0);
+}
+.milestone img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.milestone-content {
+  padding: 1rem;
+}
+.milestone h3 {
+  color: #0071c5;
+  margin: 0 0 0.5rem;
+}
+.short-text {
+  font-weight: 600;
+}
+.details {
+  display: none;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+/* Hover Reveal */
+.milestone:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.milestone:hover .details {
+  display: block;
+}
+
+/* Scroll Animations */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease-out;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  .milestone {
+    width: 100%;
+  }
+}
+
+footer {
+  background: #004080;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
